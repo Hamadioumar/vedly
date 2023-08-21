@@ -1,12 +1,19 @@
 console.log("Before");
-getUser(1, (user) => {
-  console.log("User", user);
-  getRepositories(user.gitHubUsername, (repos) => {
-    console.log("Repos", repos);
-  });
-});
+getUser(1, getRepositories);
 
 console.log("After");
+
+function getRepositories(repos) {
+  getRepositories(user.gitHubUsername, getommits);
+}
+
+function getommits(getRepositories) {
+  getommits(repo, displayCommits);
+}
+
+function displayCommits(commits) {
+  console.log(commits);
+}
 
 function getUser(id) {
   return new Promise((id, callback) => {
