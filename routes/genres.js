@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
-router.get("/", (req, res) => {
-  res.send(genres);
-});
 
 const genres = [
   { id: 1, name: "Action" },
   { id: 2, name: "Horror" },
   { id: 3, name: "Romance" },
 ];
+
+router.get("/", (req, res) => {
+  res.send(genres);
+});
 
 router.get("/:id", (req, res) => {
   const genre = genres.find((g) => g.id === parseInt(req.params.id));
